@@ -6,11 +6,12 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 15:17:23 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/11/03 19:12:28 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/11/04 11:30:42 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cctype>
 
 void	printUppercase(char *str) {
 
