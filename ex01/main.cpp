@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 21:35:36 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/11/07 12:02:03 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/11/07 21:07:46 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <iostream>
 
 int	main(void) {
-
 	PhoneBook phoneBook;
 	std::string command;
 
@@ -29,7 +28,7 @@ int	main(void) {
 				break;
 			}
 			std::cin.clear();
-			std::cout << B_RED << "ERROR: Input failed!" << RESET << std::endl;
+			std::cout << B_RED << "ERROR: Input failed!\n" << RESET << std::endl;
 			continue;
 		}
 
@@ -43,8 +42,7 @@ int	main(void) {
 			break;
 		} else {
 			std::cout << B_RED << "ERROR: Incorrect command!" << std::endl;
-			std::cout << "Use ADD, SEARCH or EXIT commands only!" << RESET << std::endl;
-			std::cout << std::endl;
+			std::cout << "Use ADD, SEARCH or EXIT commands only!\n" << RESET << std::endl;
 		}
 	}
 
