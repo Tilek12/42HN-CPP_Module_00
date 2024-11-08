@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 21:28:26 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/11/07 20:32:52 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/11/08 13:57:25 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@
 class	PhoneBook {
 
 private:
-	Contact contacts[8];
-	int	currentContactIndex;
-	int	totalContacts;
+
+	Contact	_contacts[8];
+	int		_currentContactIndex;
+	int		_totalContacts;
 
 public:
+
 	PhoneBook(void);
+
 	bool	isDigit(const std::string &str) const;
 	bool	isAlphabetic(const std::string &str) const;
 	bool	isValidInput(const std::string &firstName,
@@ -35,6 +38,7 @@ public:
 	void	incorrectInputHandler(void) const;
 	void	addContact(void);
 	void	searchContact(void) const;
+
 };
 
 #endif

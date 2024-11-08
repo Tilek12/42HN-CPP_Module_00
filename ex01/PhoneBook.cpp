@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 21:22:39 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/11/07 21:03:00 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:16:08 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@
 #include <iomanip>
 #include <string>
 
-PhoneBook::PhoneBook() : currentContactIndex(0), totalContacts(0) {}
+PhoneBook::PhoneBook(void) : _currentContactIndex(0), _totalContacts(0) {}
 
-bool	PhoneBook::isDigit(const std::string &str)  const {
+bool	PhoneBook::isDigit(const std::string &str) const {
+
 	if (str.empty()) return false;
 
 	if (str[0] == '+') {
-		for (size_t i = 0; i < str.size(); i++) {
+		for (size_t i = 1; i < str.size(); i++) {
 			if (!std::isdigit(str[i])) return false;
 		}
 	} else {
@@ -32,14 +33,17 @@ bool	PhoneBook::isDigit(const std::string &str)  const {
 	}
 
 	return true;
+
 }
 
 bool	PhoneBook::isAlphabetic(const std::string &str) const {
+
 	for (char c : str) {
 		if (!std::isalpha(c)) return false;
 	}
 
 	return true;
+
 }
 
 bool	PhoneBook::isValidInput(const std::string &firstName,
@@ -76,9 +80,11 @@ bool	PhoneBook::isValidInput(const std::string &firstName,
 	std::cout << std::endl;
 
 	return noError;
+
 }
 
 void	PhoneBook::incorrectInputHandler(void) const {
+
 		if (std::cin.eof()) {
 			std::cout << B_RED << "\nEOF signal detected. Returning to main menu.\n" << RESET << std::endl;
 		} else {
@@ -86,18 +92,24 @@ void	PhoneBook::incorrectInputHandler(void) const {
 		}
 
 		std::cin.clear();
+
 }
 
 bool	PhoneBook::getInput(const std::string &promt, std::string &input) {
+
 	std::cout << B_YELLOW << promt << RESET;
+
 	if (!std::getline(std::cin, input)) {
 		incorrectInputHandler();
 		return false;
 	}
+
 	return true;
+
 }
 
-void	PhoneBook::addContact() {
+void	PhoneBook::addContact(void) {
+
 	std::string firstName, lastName, nickName, phoneNumber, darkestSecret;
 
 	if (!getInput("Enter First Name: ", firstName)
@@ -113,13 +125,15 @@ void	PhoneBook::addContact() {
 	}
 
 	std::cout << std::endl;
-	contacts[currentContactIndex].setInfo(firstName, lastName, nickName, phoneNumber, darkestSecret);
-	currentContactIndex = (currentContactIndex + 1) % 8;
+	_contacts[_currentContactIndex].setInfo(firstName, lastName, nickName, phoneNumber, darkestSecret);
+	_currentContactIndex = (_currentContactIndex + 1) % 8;
 
-	if (totalContacts < 8) totalContacts++;
+	if (_totalContacts < 8) _totalContacts++;
+
 }
 
-void	PhoneBook::searchContact() const {
+void	PhoneBook::searchContact(void) const {
+
 	int	index;
 
 	std::cout << YELLOW << std::setw(10) << "Index" << "|" << RESET;
@@ -127,8 +141,8 @@ void	PhoneBook::searchContact() const {
 	std::cout << YELLOW << std::setw(10) << "Last Name" << "|" << RESET;
 	std::cout << YELLOW << std::setw(10) << "Nickname" << RESET << std::endl;
 
-	for (int i = 0; i < totalContacts; i++) {
-		contacts[i].showDetails(i);
+	for (int i = 0; i < _totalContacts; i++) {
+		_contacts[i].showDetails(i);
 	}
 
 	std::cout << B_GREEN << "\nTo view Details enter index: " << RESET;
@@ -141,10 +155,11 @@ void	PhoneBook::searchContact() const {
 
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-	if (index < 0 || index >= totalContacts) {
+	if (index < 0 || index >= _totalContacts) {
 		std::cout << B_RED << "ERROR: Incorrect index.\n" << RESET << std::endl;
 	} else {
 		std::cout << std::endl;
-		contacts[index].getInfo();
+		_contacts[index].getInfo();
 	}
+
 }
