@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:20:32 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/11/09 14:42:44 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/11/09 15:14:23 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,6 @@ int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
-
-// void	Account::_displayTimestamp(void) {
-
-// 	std::time_t	currentTime = std::time(nullptr);
-// 	std::tm*	timeInfo = std::localtime(&currentTime);
-// 	std::cout << "[" << std::put_time(timeInfo, "%Y%m%d_%H%M%S") << "] ";
-
-// }
 
 void Account::_displayTimestamp(void) {
 
