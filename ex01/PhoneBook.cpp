@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phoneBook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 21:22:39 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/11/08 14:16:08 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/11/09 14:53:55 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <limits>
 
 PhoneBook::PhoneBook(void) : _currentContactIndex(0), _totalContacts(0) {}
 

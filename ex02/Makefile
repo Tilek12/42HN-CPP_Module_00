@@ -20,7 +20,7 @@ $(NAME): $(OBJ)
 
 # Compile object files
 %.o: %.cpp
-	@$(CXX) $(CXXFLAGS) -c $< -o $@ > /dev/null 2>&1
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Clean up object files
 clean:

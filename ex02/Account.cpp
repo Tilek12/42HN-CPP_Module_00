@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:20:32 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/11/08 17:36:57 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/11/09 14:42:44 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,28 @@ int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
-void	Account::_displayTimestamp(void) {
+// void	Account::_displayTimestamp(void) {
 
-	std::time_t	curr_time = std::time(nullptr);
-	std::tm* timeinfo = std::localtime(&curr_time);
-	std::cout << "[" << std::put_time(timeinfo, "%Y%m%d_%H%M%S") << "] ";
+// 	std::time_t	currentTime = std::time(nullptr);
+// 	std::tm*	timeInfo = std::localtime(&currentTime);
+// 	std::cout << "[" << std::put_time(timeInfo, "%Y%m%d_%H%M%S") << "] ";
+
+// }
+
+void Account::_displayTimestamp(void) {
+
+	char	buffer[20];
+
+	std::time_t currentTime = std::time(NULL);
+	std::tm* timeInfo = std::localtime(&currentTime);
+	std::strftime(buffer, sizeof(buffer), "%Y%m%d_%H%M%S", timeInfo);
+	std::cout << "[" << buffer << "] ";
 
 }
 
-Account::Account(int initial_deposit) : _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0) {
+Account::Account(int initial_deposit) : _amount(initial_deposit),
+										_nbDeposits(0),
+										_nbWithdrawals(0) {
 
 	this->_accountIndex = _nbAccounts++;
 	_totalAmount += initial_deposit;
