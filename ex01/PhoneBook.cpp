@@ -6,7 +6,7 @@
 /*   By: tkubanyc <tkubanyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 21:22:39 by tkubanyc          #+#    #+#             */
-/*   Updated: 2024/11/09 14:53:55 by tkubanyc         ###   ########.fr       */
+/*   Updated: 2024/11/18 11:50:37 by tkubanyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,13 @@ bool	PhoneBook::isValidInput(const std::string &firstName,
 
 void	PhoneBook::incorrectInputHandler(void) const {
 
-		if (std::cin.eof()) {
-			std::cout << B_RED << "\nEOF signal detected. Returning to main menu.\n" << RESET << std::endl;
-		} else {
-			std::cout << B_RED << "\nERROR: Invalid input.\n" << RESET << std::endl;
-		}
+	if (std::cin.eof()) {
+		std::cout << B_RED << "\nEOF signal detected. Returning to main menu.\n" << RESET << std::endl;
+	} else {
+		std::cout << B_RED << "ERROR: Invalid input.\n" << RESET << std::endl;
+	}
 
-		std::cin.clear();
+	std::cin.clear();
 
 }
 
@@ -135,7 +135,8 @@ void	PhoneBook::addContact(void) {
 
 void	PhoneBook::searchContact(void) const {
 
-	int	index;
+	std::string	input;
+	int			index;
 
 	std::cout << YELLOW << std::setw(10) << "Index" << "|" << RESET;
 	std::cout << YELLOW << std::setw(10) << "First Name" << "|" << RESET;
@@ -148,13 +149,17 @@ void	PhoneBook::searchContact(void) const {
 
 	std::cout << B_GREEN << "\nTo view Details enter index: " << RESET;
 
-	if (!(std::cin >> index)) {
+	if (!std::getline(std::cin, input)) {
 		incorrectInputHandler();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		return;
 	}
 
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	if (input.empty() || !isDigit(input)) {
+		std::cout << B_RED << "ERROR: Incorrect input.\n" << RESET << std::endl;
+		return;
+	}
+
+	index = std::stoi(input);
 
 	if (index < 0 || index >= _totalContacts) {
 		std::cout << B_RED << "ERROR: Incorrect index.\n" << RESET << std::endl;
