@@ -16,9 +16,8 @@
 
 ## :green_circle: **Exercise 00: Megaphone**
 
-**Title** | Megaphone
-|:---|:---|
 **Turn-in directory :**   | ex00/
+|:---|:---|
 **Files to turn in :**    | Makefile, megaphone.cpp
 **Forbidden functions :** | None
 
@@ -37,9 +36,8 @@ $>
 
 ## :green_circle: **Exercise 01: My Awesome PhoneBook**
 
-**Title** | My Awesome PhoneBook
-|:---|:---|
 **Turn-in directory :**   | ex01/
+|:---|:---|
 **Files to turn in :**    | Makefile, *.cpp, *.{h, hpp}
 **Forbidden functions :** | None
 
@@ -94,9 +92,8 @@ Give a relevant name to your executable.
 
 ## :star: **Exercise 02: The Job Of Your Dreams**
 
-**Title** | The Job Of Your Dreams
-|:---|:---|
 **Turn-in directory :**   | ex02/
+|:---|:---|
 **Files to turn in :**    | Makefile, Account.cpp, Account.hpp, tests.cpp
 **Forbidden functions :** | None
 
